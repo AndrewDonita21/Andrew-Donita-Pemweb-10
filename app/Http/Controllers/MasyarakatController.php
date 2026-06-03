@@ -21,7 +21,8 @@ class MasyarakatController extends Controller
 
     public function show(Masyarakat $masyarakat)
     {
-        $masyarakat = Masyarakat::with('keluhans')->where('id, $masyarakat_id')->first();
+        $masyarakat = Masyarakat::with('keluhans')->where('id->$masyarakat_id')->first();
+        return $masyarakat;
     }
 
     public function store(Request $request)

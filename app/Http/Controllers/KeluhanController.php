@@ -7,11 +7,12 @@ use App\Models\keluhan;
 
 class KeluhanController extends Controller
 {
-    public function masyarakat()
+    public function masyarakat(Keluhan $keluhan)
     {  
-        $keluhans = keluhan::with('masyarakat')->get();
-        return View('keluhan.index', compact('keluhan'));
+        $keluhan= Keluhan::with('pelapor')->where('masyarakat_id',$keluhan->id)->first();
+        return $keluhan;
     }
+    
         
     
 }
